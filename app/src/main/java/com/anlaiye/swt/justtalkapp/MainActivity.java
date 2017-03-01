@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,7 +25,7 @@ import java.util.List;
  * 邮箱：sunwentao@imcoming.cn
  * 时间: 2017/3/1
  */
-public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
+public class MainActivity extends BaseActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
     private List<Tab> mTabs;
     private ActionBar mActionBar;
 
@@ -66,8 +65,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 
     }
-
-
 
 
     @Override
