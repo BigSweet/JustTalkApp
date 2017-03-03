@@ -59,36 +59,41 @@ public class VolleyHttpClient {
     }
 
     public void post(String url,
-                     Map<String, String> params,
+                     Map<String, String> params,Map<String, String> heads,
                      int loadingMsg,
                      final RequestListener listener) {
 
-        request(Request.Method.POST, url, params, loadingMsg, listener);
+        request(Request.Method.POST, url, params,heads, loadingMsg, listener);
     }
+
 
 
     public void get(String url,
                     int loadingMsg,
                     final RequestListener listener) {
 
-        request(Request.Method.GET, url, null, loadingMsg, listener);
+        request(Request.Method.GET, url, null,null, loadingMsg, listener);
     }
 
     public void request(int method,
                         String url,
-                        Map<String, String> params,
+                        Map<String, String> params,Map<String, String> heads,
                         int loadingMsg,
                         final RequestListener listener) {
 
 
         if (listener != null)
             listener.onPreRequest();
+        if (loadingMsg == 0) {
 
-        showLoading(loadingMsg);
+        } else {
+            showLoading(loadingMsg);
+        }
+
         BaseRequest request = new BaseRequest(
                 method,
                 url,
-                params,
+                params,heads,
                 new Response.Listener<BaseResponse>() {
                     public void onResponse(BaseResponse response) {
 
